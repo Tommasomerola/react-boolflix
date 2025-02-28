@@ -23,9 +23,9 @@ const searchMovies = (query) => {
   return (
 
     <GlobalContext.Provider value={{ movies, searchMovies }}>
-      <Homepage />
+      <HomePage />
     </GlobalContext.Provider>
-    
+
   )
 }
 

@@ -1,8 +1,8 @@
 import {useState} from 'react'
 
 // import components (Header, Main)
-import Header from './components/Header'
-import Main from './components/Main'
+import Header from './../components/Header'
+import Main from './../components/Main'
 
 export default function HomePage() {
     
@@ -14,7 +14,7 @@ export default function HomePage() {
         
                 <Header setMovies={setMovies} />
                 <Main movies={movies} />
-                
+
             </>
         )
 }
