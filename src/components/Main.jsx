@@ -16,9 +16,11 @@ export default function Main() {
             fr: 'FR',
             de: 'DE',
         };
+
     // se il codice esiste iseriamo la bandiera
     return flags[language] 
     }
+
 
     return (
         <main>
@@ -28,6 +30,7 @@ export default function Main() {
                     {movies.map(movie => (
                         <li key={movie.id}>
                             <h3>{movie.title || movie.name}</h3>
+                            <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title || movie.name} />
                             <p><strong>Titolo Originale:</strong> {movie.original_title || movie.original_name}</p>
 
                             <p><strong>Lingua:</strong> {getFlag(movie.original_language) ? (
