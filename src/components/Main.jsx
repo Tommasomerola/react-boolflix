@@ -48,7 +48,7 @@ export default function Main() {
         <main>
             <h2>Risultati della ricerca</h2>
             {movies.length > 0 ? (
-                <ul>
+                <div className="containerCard" >
                     {movies.map(movie => (
                         <li key={movie.id}>
                             <h3>{movie.title || movie.name}</h3>
@@ -72,9 +72,9 @@ export default function Main() {
                             <p><strong>Tipo:</strong> {movie.type === "movie" ? "Film" : "Serie TV"}</p>
                         </li>
                     ))}
-                </ul>
+                </div>
             ) : (
-                <p>Nessun film trovato</p>
+                <h3>Nessun film trovato</h3>
             )}
         </main>
     );
