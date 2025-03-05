@@ -2,6 +2,10 @@ import { useContext } from "react";
 import GlobalContext from "../context/GlobalContext";
 import Flag from "react-world-flags";
 
+// import star-icon from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faStar} from '@fortawesome/free-solid-svg-icons'
+
 export default function Main() {
 
     // Accediamo ai film dal contesto
@@ -19,6 +23,24 @@ export default function Main() {
 
     // se il codice esiste iseriamo la bandiera
     return flags[language] 
+    }
+
+    // funzione per aggiungere stelle
+    const generateStars = (voteAverage) => {
+        // arrotondiamo il numero a pieno
+        const fullStars = Math.ceil(voteAverage / 2);
+        let stars = [];
+        // aggiungiamo le stelle piene
+        for (let i = 0; i < 5; i++) {
+            stars.push(
+            <FontAwesomeIcon
+                icon={faStar} 
+                key={i} 
+                style={{color: i < fullStars ? 'gold' : 'grey'}}
+             />
+        )
+        }
+        return stars;
     }
 
 
@@ -46,6 +68,7 @@ export default function Main() {
                             </p>
 
                             <p><strong>Voto:</strong> {movie.vote_average}</p>
+                            <div>{generateStars(movie.vote_average)}</div>
                             <p><strong>Tipo:</strong> {movie.type === "movie" ? "Film" : "Serie TV"}</p>
                         </li>
                     ))}
