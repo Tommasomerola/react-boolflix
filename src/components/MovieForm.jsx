@@ -7,7 +7,7 @@ import GlobalContext from './../context/GlobalContext'
 const MovieForm = ( ) => {
 
     // get searchMovies from globalContext
-    const { searchMovies } = useContext(GlobalContext);
+    const { searchMoviesAndTv } = useContext(GlobalContext);
 
     // state to store query
     const [formData, setFormData] = useState({title: ''})
@@ -19,8 +19,8 @@ const MovieForm = ( ) => {
     // function to handle form submit
     function handleSubmit(e) {
         e.preventDefault()
-        // search movies with formData
-        searchMovies(formData.title)
+        // search movies and tv-series with formData
+        searchMoviesAndTv(formData.title)
 
         // reset form
         setFormData({title: ''})
@@ -34,7 +34,7 @@ const MovieForm = ( ) => {
             name='title'
             onChange={handleFormData}
             value={formData.title}
-            placeholder='Cerca film'
+            placeholder='Cerca film/serie tv'
             />
             <button type='submit'>Cerca</button>
         </form>
