@@ -27,8 +27,8 @@ export default function Main() {
                 <ul>
                     {movies.map(movie => (
                         <li key={movie.id}>
-                            <h3>{movie.title}</h3>
-                            <p><strong>Titolo Originale:</strong> {movie.original_title}</p>
+                            <h3>{movie.title || movie.name}</h3>
+                            <p><strong>Titolo Originale:</strong> {movie.original_title || movie.original_name}</p>
 
                             <p><strong>Lingua:</strong> {getFlag(movie.original_language) ? (
                                     <Flag
@@ -43,6 +43,7 @@ export default function Main() {
                             </p>
 
                             <p><strong>Voto:</strong> {movie.vote_average}</p>
+                            <p><strong>Tipo:</strong> {movie.type === "movie" ? "Film" : "Serie TV"}</p>
                         </li>
                     ))}
                 </ul>
